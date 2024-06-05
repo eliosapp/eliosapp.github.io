@@ -116,7 +116,7 @@ function generateRandomStars() {
         star.style.left = `${Math.random() * 100}%`;
         star.style.top = `${Math.random() * 100}%`;
         star.style.animationDuration = `${1 + Math.random() * 4}s`;
-  
+   
         starContainer.appendChild(star);
     }
   }
