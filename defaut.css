@@ -6,11 +6,6 @@
     margin-top: 20px;
 }
 
-.ylian-btn {
-    background-color: #0080ff;
-    color: #fff;
-}
-
 .live-btn {
     background-color: #fff000;
     color: #000000;
@@ -33,7 +28,7 @@
     color: #fff;
 }
 
-.discord-btn, .youtube-btn, .github-btn, .ylian-btn, .live-btn {
+.discord-btn, .youtube-btn, .github-btn, .live-btn {
     display: inline-block;
     padding: 10px 20px;
     margin: 0 10px;
@@ -55,11 +50,6 @@
 
 .github-btn:hover {
     background-color: #555;
-    transform: scale(1.1); 
-}
-
-.ylian-btn:hover {
-    background-color: #003cff;
     transform: scale(1.1); 
 }
 

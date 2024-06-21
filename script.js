@@ -11,13 +11,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
     closeButton.addEventListener('click', function() {
         modal.style.display = 'none';
-        console.log(`[${getCurrentTime()}] Fenetre fermé`)
+        console.log(`[${getCurrentTime()}] Fenetre fermée`)
     });
 
     window.addEventListener('click', function(event) {
         if (event.target === modal) {
             modal.style.display = 'none';
-            console.log(`[${getCurrentTime()}] Fenetre fermé`)
+            console.log(`[${getCurrentTime()}] Fenetre fermée`)
         }
     });
 
@@ -81,7 +81,7 @@ function getCookie(name) {
 function loadPreferences() {
     const theme = getCookie('theme');
     const police = getCookie('police');
-
+    console.log('Bienvenue sur la console d\'elios, tapes help() pour voir les commandes')
     if (theme) {
         const themeSelector = document.getElementById("themeSelector");
         const themeLink = document.getElementById("theme");
@@ -102,7 +102,10 @@ function loadPreferences() {
 }
 
 
-
+function removeStars() {
+    const starContainer = document.querySelector('.star-container');
+    starContainer.innerHTML = '';
+}
 
 
 
@@ -122,3 +125,57 @@ function generateRandomStars() {
   }
   
   generateRandomStars();
+
+  function help() {
+    const commands = [
+        {
+            command: 'addStars()',
+            description: 'Ajoute des étoiles aléatoires dans le theme nuit étoilée.'
+        },
+        {
+            command: 'removeStars()',
+            description: 'Supprime toutes les étoiles dans le theme nuit étoilée.'
+        },
+        {
+            command: 'loadPreferences()',
+            description: 'Charge les (thème et police) depuis les cookies et les applique à la page'
+        },
+        {
+            command: 'open()',
+            description: 'Ouvre la fenetre option'
+        },
+        {
+            command: 'close()',
+            description: 'Ferme la fenetre option'
+        },
+        {
+            command: 'help()',
+            description: 'Affiche toutes les commandes disponibles et leur description.'
+        }
+    ];
+
+    console.log("Commandes disponibles:");
+    commands.forEach(cmd => {
+        console.log(`${cmd.command}: ${cmd.description}`);
+    });
+}
+
+function open() {
+    const modal = document.getElementById('modal');
+        modal.style.display = 'block';
+    }
+
+function close() {
+    const modal = document.getElementById('modal');
+        modal.style.display = 'none';
+    }
+
+    document.addEventListener('keydown', function(event) {
+        const modal = document.getElementById('modal');
+        if (event.key === 'Escape') {
+            if (modal.style.display === 'block') {
+            close();
+            console.log(`[${getCurrentTime()}] Fenetre fermée`)
+            }
+        }
+    });
